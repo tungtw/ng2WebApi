@@ -1,15 +1,21 @@
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Demo.WebApi.Models
 {
     [BsonIgnoreExtraElements]
+    [UsedImplicitly]
     public sealed class ChartData
     {
+        [BsonElement("chartNo")]
+        public string ChartNo { get; set; }
+
         [BsonElement("data")]
         public List<Datum> Data { get; set; }
     }
 
+    [UsedImplicitly]
     public sealed class Datum
     {
         [BsonElement("labels")]
@@ -18,6 +24,7 @@ namespace Demo.WebApi.Models
         public List<Dataset> Datasets { get; set; }
     }
 
+    [UsedImplicitly]
     public sealed class Dataset
     {
         [BsonElement("data")]

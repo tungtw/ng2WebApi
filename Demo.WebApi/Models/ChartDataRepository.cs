@@ -27,5 +27,11 @@ namespace Demo.WebApi.Models
             var data = ChartDataCollection.Find(x => true).ToList().First();
             return data;
         }
+
+        public ChartData GetChartData(string chartNo)
+        {
+            var data = ChartDataCollection.Find(x => x.ChartNo == chartNo).ToList().First();
+            return data;
+        }
     }
 }

@@ -20,6 +20,11 @@ namespace Demo.WebApi.Controllers
             return _chartDataRepository.GetChartData();
         }
 
+        public ChartData Get(string chartNo)
+        {
+            return _chartDataRepository.GetChartData(chartNo);
+        }
+
         // GET: api/ChartData/5
         public string Get(int id)
         {

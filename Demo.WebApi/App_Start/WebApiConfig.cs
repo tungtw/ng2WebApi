@@ -25,7 +25,7 @@ namespace Demo.WebApi
             config.EnableCors();
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{chartNo}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }
