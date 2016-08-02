@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.IO;
+﻿using System.ComponentModel.Composition;
 using System.Linq;
-using System.Web.Hosting;
 using MongoDB.Driver;
-using Newtonsoft.Json;
 
 namespace Demo.WebApi.Models
 {
@@ -30,18 +26,6 @@ namespace Demo.WebApi.Models
         {
             var data = ChartDataCollection.Find(x => true).ToList().First();
             return data;
-        }
-
-        public IEnumerable<ChartData> GetChartDataFromText()
-        {
-            var filepath = HostingEnvironment.MapPath(@"~/App_Data/chart-Data.json");
-            if (filepath != null)
-            {
-                var json = File.ReadAllText(filepath);
-                var chartData = JsonConvert.DeserializeObject<ChartData>(json);
-                return new[] {chartData};
-            }
-            return Enumerable.Empty<ChartData>();
         }
     }
 }
