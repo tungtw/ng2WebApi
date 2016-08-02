@@ -1,0 +1,45 @@
+{
+  "data": [
+    {
+      "labels": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July"
+      ],
+      "datasets": [
+        {
+          "label": "First Dataset",
+          "fill": false,
+          "borderColor": "#565656",
+          "data": [
+            650,
+            590,
+            800,
+            810,
+            560,
+            550,
+            400
+          ]
+        },
+        {
+          "label": "Second Dataset",
+          "fill": false,
+          "borderColor": "#4bc0c0",
+          "data": [
+            128,
+            148,
+            140,
+            119,
+            186,
+            127,
+            190
+          ]
+        }
+      ]
+    }
+  ]
+}
