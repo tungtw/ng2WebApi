@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.Composition;
+﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using MongoDB.Driver;
 
@@ -13,24 +14,24 @@ namespace Demo.WebApi.Models
             Database = client.GetDatabase("Demo");
         }
 
-        public IMongoDatabase Database { get; }
+        private IMongoDatabase Database { get; }
 
-        public IMongoCollection<ChartData> ChartDataCollection
+        private IMongoCollection<ChartData> ChartDataCollection
             => Database.GetCollection<ChartData>("charts");
 
         public IMongoCollection<Restaurant> RestaurantCollection
             => Database.GetCollection<Restaurant>("restaurants");
 
 
-        public ChartData GetChartData()
+        public IEnumerable<ChartData> GetChartData()
         {
-            var data = ChartDataCollection.Find(x => true).ToList().First();
+            var data = ChartDataCollection.Find(x => true).ToList(); //First();
             return data;
         }
 
-        public ChartData GetChartData(string chartNo)
+        public IEnumerable<ChartData> GetChartData(string chartNo)
         {
-            var data = ChartDataCollection.Find(x => x.ChartNo == chartNo).ToList().First();
+            var data = GetChartData().Where(x => x.ChartNo == chartNo);
             return data;
         }
     }

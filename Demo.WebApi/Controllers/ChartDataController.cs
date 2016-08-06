@@ -1,5 +1,7 @@
-﻿using System.Web.Http;
+﻿using System.Linq;
+using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Http.OData;
 using Demo.WebApi.Models;
 
 namespace Demo.WebApi.Controllers
@@ -15,14 +17,16 @@ namespace Demo.WebApi.Controllers
         }
 
         // GET: api/ChartData
+        [EnableQuery()]
         public ChartData Get()
         {
-            return _chartDataRepository.GetChartData();
+            return _chartDataRepository.GetChartData().First();
         }
 
+        [EnableQuery()]
         public ChartData Get(string chartNo)
         {
-            return _chartDataRepository.GetChartData(chartNo);
+            return _chartDataRepository.GetChartData(chartNo).First();
         }
 
         // GET: api/ChartData/5

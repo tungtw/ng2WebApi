@@ -20,6 +20,7 @@ namespace Demo.WebApi.Models
     {
         [BsonElement("labels")]
         public List<string> Labels { get; set; }
+
         [BsonElement("datasets")]
         public List<Dataset> Datasets { get; set; }
     }
@@ -29,6 +30,15 @@ namespace Demo.WebApi.Models
     {
         [BsonElement("data")]
         public List<double> Data { get; set; }
+
+        [BsonElement("fill")]
+        public bool Fill { get; set; }
+
+        [BsonElement("borderColor")]
+        public string BorderColor { get; set; }
+
+        [BsonElement("label")]
+        public string Label { get; set; }
     }
 
 
